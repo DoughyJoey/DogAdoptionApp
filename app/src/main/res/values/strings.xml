@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DogAdoptionApp</string>
+    <string name="startup_button_login">Log In</string>
+    <string name="startup_button_signup">Sign Up</string>
 </resources>
