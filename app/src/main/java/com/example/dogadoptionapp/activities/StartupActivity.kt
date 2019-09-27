@@ -11,12 +11,15 @@ class StartupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_startup)
     }
-
+    /*when you click this button, start the LoginActivity with the intent provided*/
+    /*connects buttons to activities*/
     fun onLogin(v: View){
-
+        startActivity(LoginActivity.newIntent(this))
     }
 
+    /*when you click this button, start the LoginActivity with the intent provided*/
+    /*connects buttons to activities*/
     fun onSignup(v: View){
-
+        startActivity(SignupActivity.newIntent(this))
     }
 }

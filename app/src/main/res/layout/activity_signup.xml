@@ -6,4 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".activities.SignupActivity">
 
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="@dimen/normal_width"
+        android:layout_height="@dimen/normal_height"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="@dimen/normal_width"
+        android:layout_height="@dimen/normal_height"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailET" />
+
+    <Button
+        android:id="@+id/loginButton"
+        style="@style/NormalButton"
+        android:layout_width="@dimen/normal_width"
+        android:layout_height="@dimen/normal_height"
+        android:onClick="onSignup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordET"
+        android:text="@string/signup_button_text"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
