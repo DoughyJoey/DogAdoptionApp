@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "45461377197",
+    "firebase_url": "https://dogadoptionapp-5ad49.firebaseio.com",
+    "project_id": "dogadoptionapp-5ad49",
+    "storage_bucket": "dogadoptionapp-5ad49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45461377197:android:6c70ad1f88532cc6d67624",
+        "android_client_info": {
+          "package_name": "com.example.dogadoptionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45461377197-nj7ntkfkvt6pde7o9qbdgcll7b413ibv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dogadoptionapp",
+            "certificate_hash": "bdfa64b1e1db74d8fb0dd39bc5141bbe1b4face2"
+          }
+        },
+        {
+          "client_id": "45461377197-4s8ofivgd3e26uq97nmi6rl78s82sr9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP7L4kcqwKM6Ubayb5SfxMdU42WJdivGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45461377197-4s8ofivgd3e26uq97nmi6rl78s82sr9b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
