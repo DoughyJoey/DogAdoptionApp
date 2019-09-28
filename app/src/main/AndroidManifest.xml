@@ -7,7 +7,7 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
 <!--        screenOrientation means application will always run in portrait-->
 <!--        SoftInputMode means screen will resize when the keyboard in present-->
         <activity android:name=".activities.SignupActivity"
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.DogAppActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>
     </application>

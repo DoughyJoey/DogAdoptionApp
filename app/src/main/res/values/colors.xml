@@ -10,5 +10,6 @@
     <color name="green">#0fa331</color>
     <color name="gold">#ffb344</color>
     <color name="red">#ff755b</color>
+    <color name="shadow_color">#cadddddd</color>
 
 </resources>

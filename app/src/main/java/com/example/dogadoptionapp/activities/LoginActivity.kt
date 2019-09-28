@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.example.dogadoptionapp.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login2.*
-import java.security.AccessControlContext
 
 class LoginActivity : AppCompatActivity() {
 
@@ -17,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
     private val firebaseAuthListener = FirebaseAuth.AuthStateListener {
         val user = firebaseAuth.currentUser
         if(user != null){
-            startActivity(MainActivity.newIntent(this))
+            startActivity(DogAppActivity.newIntent(this))
             finish()
         }
     }
