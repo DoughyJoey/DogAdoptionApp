@@ -22,4 +22,8 @@
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
     </style>
+    
+    <style name="NormalButtonBlue" parent="NormalButton">
+        <item name="android:background">@drawable/normal_button_blue</item>
+    </style>
 </resources>

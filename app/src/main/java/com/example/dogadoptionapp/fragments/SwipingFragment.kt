@@ -8,11 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.dogadoptionapp.R
+import com.example.dogadoptionapp.activities.DogAppCallback
 
 /**
  * A simple [Fragment] subclass.
  */
 class SwipingFragment : Fragment() {
+
+    private var callback: DogAppCallback? = null
+
+    fun setCallback(callback: DogAppCallback){
+        this.callback = callback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

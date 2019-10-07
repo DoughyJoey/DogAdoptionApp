@@ -9,4 +9,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_preference">I am a</string>
+    <string name="hint_person">Person</string>
+    <string name="hint_doggo">Doggo</string>
+    <string name="hint_preference2">Looking for a</string>
+    <string name="button_signout">Sign Out</string>
+    <string name="button_apply">Apply</string>
+    <string name="incomplete_profile_error">Please complete all information before applying</string>
 </resources>

@@ -1,3 +1,11 @@
 package com.example.dogadoptionapp.Util
 
 val DATA_USERS = "Users"
+val DATA_NAME = "name"
+val DATA_EMAIL = "email"
+val DATA_AGE = "age"
+val DATA_PREFERENCE = "preference"
+val DATA_PREFERENCE2 = "preference2"
+val DATA_PERSON = "person"
+val DATA_DOGGO = "doggo"
+val DATA_IMAGE_URL = "imageUrl"
