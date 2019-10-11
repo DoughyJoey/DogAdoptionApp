@@ -9,16 +9,24 @@ import android.view.ViewGroup
 
 import com.example.dogadoptionapp.R
 import com.example.dogadoptionapp.activities.DogAppCallback
+import com.google.firebase.database.DatabaseReference
 
 /**
  * A simple [Fragment] subclass.
  */
 class ChatFragment : Fragment() {
 
+    private lateinit var userId: String
+    private lateinit var userDatabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
     private var callback: DogAppCallback? = null
 
     fun setCallback(callback: DogAppCallback){
         this.callback = callback
+        userId = callback.onGetUserId()
+        userDatabase = callback.getUserDatabase()
+        chatDatabase = callback.getChatDatabase()
+
     }
 
     override fun onCreateView(

@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.dogadoptionapp.R
+import com.example.dogadoptionapp.Util.DATA_CHATS
 import com.example.dogadoptionapp.Util.DATA_USERS
 import com.example.dogadoptionapp.fragments.ChatFragment
 import com.example.dogadoptionapp.fragments.ProfileFragment
@@ -36,6 +37,7 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val userId = firebaseAuth.currentUser?.uid
     private lateinit var userDatabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
 
     private var profileFragment: ProfileFragment? = null
     private var swipingFragment: SwipingFragment? = null
@@ -56,6 +58,7 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
         }
 
         userDatabase = FirebaseDatabase.getInstance().reference.child(DATA_USERS)
+        chatDatabase = FirebaseDatabase.getInstance().reference.child(DATA_CHATS)
 
         profileTab = navigationTabs.newTab()
         swipingTab = navigationTabs.newTab()
@@ -157,6 +160,8 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
     override fun onGetUserId(): String = userId!!
 
     override fun getUserDatabase(): DatabaseReference = userDatabase
+
+    override fun getChatDatabase(): DatabaseReference = chatDatabase
 
     override fun profileComplete() {
         swipingTab?.select()
