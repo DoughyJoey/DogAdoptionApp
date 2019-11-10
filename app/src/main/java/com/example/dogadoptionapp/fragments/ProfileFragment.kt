@@ -27,6 +27,9 @@ import kotlinx.android.synthetic.main.fragment_profile.*
  */
 class ProfileFragment : Fragment() {
 
+    // to get the userId of the current user that is logged in
+    // lateinit - will be instantiated before it is ever used
+    // userDatabase used to retrieve and store information on the database
     private lateinit var userId: String
     private lateinit var userDatabase: DatabaseReference
     private var callback: DogAppCallback? = null

@@ -12,9 +12,14 @@ import com.example.dogadoptionapp.R
 
 class ChatsAdapter(private var chats: ArrayList<Chat>): RecyclerView.Adapter<ChatsAdapter.ChatsViewHolder>() {
 
+    fun addElement(chat: Chat){
+        chats.add(chat)
+        notifyDataSetChanged()
+    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ChatsViewHolder(LayoutInflater.from(parent.context).inflate(
-        R.layout.item_chat, parent, false))
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ChatsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_chat, parent, false))
 
     override fun getItemCount() = chats.size
 

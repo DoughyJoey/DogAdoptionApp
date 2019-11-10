@@ -21,34 +21,37 @@ class UserInformationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_information)
 
         val userId = intent.extras.getString(PARAM_USER_ID, "")
-        if(userId.isNullOrEmpty()){
+        if(userId.isNullOrEmpty()) {
             finish()
         }
 
+        /* get the users database */
         val userDatabase = FirebaseDatabase.getInstance().reference.child(DATA_USERS)
-        userDatabase.child(userId).addListenerForSingleValueEvent(object: ValueEventListener{
+        userDatabase.child(userId).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-
             }
 
+            /* populates the views with user name, age, and image */
             override fun onDataChange(p0: DataSnapshot) {
                 val user = p0.getValue(User::class.java)
                 userInfoName.text = user?.name
                 userInfoAge.text = user?.age
-                if(user?.imageUrl != null){
+                /* checks if the image is present */
+                /* if it is, it gets loaded into the user information image view */
+                if(user?.imageUrl != null) {
                     Glide.with(this@UserInformationActivity)
                         .load(user.imageUrl)
                         .into(userInfoIV)
                 }
             }
-
         })
     }
 
-    companion object{
+    /* starts the activity */
+    companion object {
         private val PARAM_USER_ID = "User id"
 
-        fun newIntent(context: Context, userId: String?): Intent{
+        fun newIntent(context: Context, userId: String?): Intent {
             val intent = Intent(context, UserInformationActivity::class.java)
             intent.putExtra(PARAM_USER_ID, userId)
             return intent

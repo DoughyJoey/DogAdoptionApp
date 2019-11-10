@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/noUsersLayout"
         android:layout_width="match_parent"
@@ -36,6 +37,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!--Prints message when there are no users available-->
+        <!--Appears when visibility = gone-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,14 +46,17 @@
 
     </LinearLayout>
 
+    <!--Layout for buttons-->
     <LinearLayout
         android:id="@+id/swipeButtons"
         android:layout_width="match_parent"
         android:layout_height="@dimen/swipe_button_height"
         android:gravity="bottom"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/progressLayout">
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
+        <!--Dislike button layout-->
         <ImageButton
             android:id="@+id/dislikeButton"
             android:layout_width="0dp"
@@ -61,6 +67,7 @@
             android:layout_gravity="center_vertical"
             android:scaleType="centerInside"/>
 
+        <!--Like button layout-->
         <ImageButton
             android:id="@+id/likeButton"
             android:layout_width="0dp"
@@ -71,6 +78,7 @@
             android:layout_gravity="center_vertical"
             android:scaleType="centerInside"/>
     </LinearLayout>
+
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
