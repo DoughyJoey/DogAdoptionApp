@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dogadoptionapp.Chat
 import com.example.dogadoptionapp.R
+import com.example.dogadoptionapp.activities.ChatActivity
 
 class ChatsAdapter(private var chats: ArrayList<Chat>): RecyclerView.Adapter<ChatsAdapter.ChatsViewHolder>() {
 
@@ -41,7 +42,10 @@ class ChatsAdapter(private var chats: ArrayList<Chat>): RecyclerView.Adapter<Cha
                     .load(chat.imageUrl)
                     .into(image)
             }
-            layout.setOnClickListener{}
+            layout.setOnClickListener{
+                val intent = ChatActivity.newIntent(view.context, chat.chatId, chat.userId, chat.imageUrl, chat.otherUserId)
+                view.context.startActivity(intent)
+            }
         }
     }
 }

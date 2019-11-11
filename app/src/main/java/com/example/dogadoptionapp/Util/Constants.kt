@@ -12,5 +12,5 @@ val DATA_IMAGE_URL = "imageUrl"
 val DATA_SWIPE_LEFT = "swipeLeft"
 val DATA_SWIPE_RIGHT = "swipeRight"
 val DATA_MATCHES = "matches"
-
+val DATA_MESSAGES = "messages"
 val DATA_CHATS = "chats"

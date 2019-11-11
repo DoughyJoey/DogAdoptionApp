@@ -26,4 +26,17 @@
     <style name="NormalButtonBlue" parent="NormalButton">
         <item name="android:background">@drawable/normal_button_blue</item>
     </style>
+
+    <style name="SendButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/normal_button_text_size</item>
+        <item name="android:background">@drawable/send_button</item>
+    </style>
+
+    <style name="ChatBox">
+        <item name="android:textSize">@dimen/chat_text_size</item>
+        <item name="android:minHeight">@dimen/chat_normal_size</item>
+        <item name="android:maxWidth">@dimen/chat_max_size</item>
+    </style>
+
 </resources>

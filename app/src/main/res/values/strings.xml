@@ -19,4 +19,6 @@
     <string name="button_apply">Apply</string>
     <string name="incomplete_profile_error">Please complete all information before applying</string>
     <string name="no_users_available">There are no users available</string>
+    <string name="send_button_text">Send</string>
+    <string name="hint_message">Message</string>
 </resources>
