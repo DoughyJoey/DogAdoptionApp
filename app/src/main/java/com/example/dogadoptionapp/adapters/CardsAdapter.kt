@@ -22,9 +22,10 @@ class CardsAdapter(context: Context?, resourceId: Int, users: List<User>): Array
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var user = getItem(position)
+        /* takes the convertview if its available. otherwise, we inflate one */
         var finalView = convertView ?: LayoutInflater.from(context).inflate(R.layout.item, parent, false)
 
-        /* gets the users photo and information layouts*/
+        /* sets the users photo and information layouts*/
         var name = finalView.findViewById<TextView>(R.id.nameTV)
         var image = finalView.findViewById<ImageView>(R.id.photoIV)
         var userInfo = finalView.findViewById<LinearLayout>(R.id.userInformationLayout)
@@ -40,6 +41,7 @@ class CardsAdapter(context: Context?, resourceId: Int, users: List<User>): Array
             finalView.context.startActivity(UserInformationActivity.newIntent(finalView.context, user.uid))
         }
 
+        /* returns the final view */
         return finalView
     }
 }

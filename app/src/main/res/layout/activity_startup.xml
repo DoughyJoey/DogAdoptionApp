@@ -8,6 +8,8 @@
     tools:context=".activities.StartupActivity"
     android:orientation="vertical">
 
+
+    <!-- startup screen logo ImageView -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/startup_logo_width"
@@ -16,15 +18,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/logo"
+        android:layout_gravity="center"
         android:layout_margin="@dimen/startup_logo_margin"/>
 
+    <!-- login button -->
+    <!-- style applies the normal button styling -->
     <Button
         android:layout_width="@dimen/normal_width"
         android:layout_height="@dimen/normal_height"
         android:text="@string/startup_button_login"
         style="@style/NormalButton"
         android:onClick="onLogin"/>
-    
+
+    <!-- sign up button -->
+    <!-- style applies the normal button styling -->
     <Button
         android:layout_width="@dimen/normal_width"
         android:layout_height="@dimen/normal_height"

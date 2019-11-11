@@ -37,6 +37,7 @@ class ProfileFragment : Fragment() {
     fun setCallback(callback: DogAppCallback){
         this.callback = callback
         userId = callback.onGetUserId()
+        /* gives us the user using userId */
         userDatabase = callback.getUserDatabase().child(userId)
     }
 
@@ -48,25 +49,33 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /* stops the user clicking on elements while page is loading */
         progressLayout.setOnTouchListener{view, event -> true}
 
         populateInformation()
 
+        /* image on click listener */
         photoIV.setOnClickListener{ callback?.startActivityForPhoto()}
 
+        /* sets a listener on the apply function */
         applyButton.setOnClickListener{ onApply() }
+        /* sets a listener on the sign out function */
         signoutButton.setOnClickListener{ callback?.onSignout()}
     }
 
     fun populateInformation(){
+        /* show the progress bar when populating information */
         progressLayout.visibility = View.VISIBLE
+        /* gets data from database and puts them inside elements */
         userDatabase.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 progressLayout.visibility = View.GONE
             }
+
 
             override fun onDataChange(p0: DataSnapshot) {
                 if(isAdded){
@@ -74,6 +83,7 @@ class ProfileFragment : Fragment() {
                     nameET.setText(user?.name, TextView.BufferType.EDITABLE)
                     emailET.setText(user?.email, TextView.BufferType.EDITABLE)
                     ageET.setText(user?.age, TextView.BufferType.EDITABLE)
+                    /* sets user preferences */
                     if(user?.preference == DATA_PERSON){
                         radioPerson1.isChecked = true
                     }
@@ -90,6 +100,8 @@ class ProfileFragment : Fragment() {
                     if(!user?.imageUrl.isNullOrEmpty()){
                         populateImage(user?.imageUrl!!)
                     }
+
+                    /* removes progress bar when information has been loaded */
                     progressLayout.visibility = View.GONE
                 }
             }
@@ -97,11 +109,14 @@ class ProfileFragment : Fragment() {
         })
     }
 
+    /* sets the users profile information */
     fun onApply(){
+        /* error handling */
         if(nameET.text.toString().isNullOrEmpty() ||
             emailET.text.toString().isNullOrEmpty() ||
                 radioGroup1.checkedRadioButtonId == -1 ||
                 radioGroup2.checkedRadioButtonId == -1){
+            /* print message to the user */
             Toast.makeText(context, getString(R.string.incomplete_profile_error), Toast.LENGTH_SHORT).show()
         } else {
             val name = nameET.text.toString()
@@ -114,6 +129,7 @@ class ProfileFragment : Fragment() {
                 if(radioPerson2.isChecked) DATA_PERSON
             else DATA_DOGGO
 
+            /* updates information in the database */
             userDatabase.child(DATA_NAME).setValue(name)
             userDatabase.child(DATA_AGE).setValue(age)
             userDatabase.child(DATA_EMAIL).setValue(email)
@@ -124,11 +140,13 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    /* updates the profile photo */
     fun updateImageUri(uri: String){
         userDatabase.child(DATA_IMAGE_URL).setValue(uri)
         populateImage(uri)
     }
 
+    /* loads the image */
     fun populateImage(uri: String){
         Glide.with(this)
             .load(uri)

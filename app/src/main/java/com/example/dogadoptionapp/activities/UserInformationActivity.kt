@@ -49,6 +49,7 @@ class UserInformationActivity : AppCompatActivity() {
 
     /* starts the activity */
     companion object {
+        /* allows us to display the user information */
         private val PARAM_USER_ID = "User id"
 
         fun newIntent(context: Context, userId: String?): Intent {

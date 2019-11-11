@@ -11,7 +11,10 @@ import com.example.dogadoptionapp.Chat
 import com.example.dogadoptionapp.R
 import com.example.dogadoptionapp.activities.ChatActivity
 
+/* cards adapter instantiates the views and calls the chats view holder */
+
 class ChatsAdapter(private var chats: ArrayList<Chat>): RecyclerView.Adapter<ChatsAdapter.ChatsViewHolder>() {
+
 
     fun addElement(chat: Chat){
         chats.add(chat)
@@ -38,10 +41,12 @@ class ChatsAdapter(private var chats: ArrayList<Chat>): RecyclerView.Adapter<Cha
         fun bind(chat: Chat){
             name.text = chat.name
             if(image != null){
+                /* loads the image */
                 Glide.with(view)
                     .load(chat.imageUrl)
                     .into(image)
             }
+            /* listener that sends us to the chat screen */
             layout.setOnClickListener{
                 val intent = ChatActivity.newIntent(view.context, chat.chatId, chat.userId, chat.imageUrl, chat.otherUserId)
                 view.context.startActivity(intent)

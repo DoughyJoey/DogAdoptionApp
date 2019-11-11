@@ -52,6 +52,7 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /* applies to chatRV all the functions we call */
         chatRV.apply {
             setHasFixedSize(false)
             layoutManager = LinearLayoutManager(context)
@@ -60,16 +61,19 @@ class ChatFragment : Fragment() {
     }
 
     fun fetchData() {
+        /* gets all the users matches */
         userDatabase.child(userId).child(DATA_MATCHES).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
 
+            /* transforms list of matches into chat elements */
             override fun onDataChange(p0: DataSnapshot) {
                 if(p0.hasChildren()) {
                     p0.children.forEach { child ->
                         val matchId = child.key
                         val chatId = child.value.toString()
                         if(!matchId.isNullOrEmpty()) {
+                            /* get the data from the user database */
                             userDatabase.child(matchId).addListenerForSingleValueEvent(object: ValueEventListener{
                                 override fun onCancelled(p0: DatabaseError) {
                                 }
@@ -78,6 +82,7 @@ class ChatFragment : Fragment() {
                                     val user = p0.getValue(User::class.java)
                                     if(user != null) {
                                         val chat = Chat(userId, chatId, user.uid, user.name, user.imageUrl)
+                                        /* update the chat adapter */
                                         chatsAdapter.addElement(chat)
                                     }
                                 }

@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.View
 import com.example.dogadoptionapp.R
 
+/* startup activity is first to be launched when we run the app */
+
 class StartupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,9 @@ class StartupActivity : AppCompatActivity() {
         startActivity(SignupActivity.newIntent(this))
     }
 
+    /* how kotlin passes a class type */
     companion object{
         fun newIntent(context: Context?) = Intent(context, StartupActivity::class.java)
     }
 }
+

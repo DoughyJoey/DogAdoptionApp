@@ -39,10 +39,12 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
     private lateinit var userDatabase: DatabaseReference
     private lateinit var chatDatabase: DatabaseReference
 
+    /* create the 3 fragments */
     private var profileFragment: ProfileFragment? = null
     private var swipingFragment: SwipingFragment? = null
     private var chatFragment: ChatFragment? = null
 
+    /* create the 3 tabs */
     private var profileTab: TabLayout.Tab? = null
     private var swipingTab: TabLayout.Tab? = null
     private var chatTab: TabLayout.Tab? = null
@@ -53,26 +55,34 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /* checks for a user and sign out if there is not */
         if(userId.isNullOrEmpty()){
             onSignout()
         }
 
+        /* gets the users and chats from the database */
         userDatabase = FirebaseDatabase.getInstance().reference.child(DATA_USERS)
         chatDatabase = FirebaseDatabase.getInstance().reference.child(DATA_CHATS)
 
+        /* creates the 3 navigation tabs */
         profileTab = navigationTabs.newTab()
         swipingTab = navigationTabs.newTab()
         chatTab = navigationTabs.newTab()
 
+        /* attaches the 3 icons to the tabs */
         profileTab?.icon = ContextCompat.getDrawable(this, R.drawable.tab_profile)
         swipingTab?.icon = ContextCompat.getDrawable(this, R.drawable.tab_swiping)
         chatTab?.icon = ContextCompat.getDrawable(this, R.drawable.tab_chat)
 
+        /* assign the tabs to the navigation tabs */
         navigationTabs.addTab(profileTab!!)
         navigationTabs.addTab(swipingTab!!)
         navigationTabs.addTab(chatTab!!)
 
+
+        /* when a tab is selected we call the listener */
         navigationTabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            /* redirects to onTabSelected */
             override fun onTabReselected(tab: TabLayout.Tab?) {
                onTabSelected(tab)
             }
@@ -81,6 +91,8 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
 
             }
 
+            /* switch case */
+            /* allows us to switch between the fragments */
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when(tab){
                     profileTab -> {
@@ -108,16 +120,19 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
             }
 
         })
+        /* profile tab is first to be selected */
         profileTab?.select()
 
     }
 
+    /* fragment replacement function */
     fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainer, fragment)
         transaction.commit()
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -127,15 +142,18 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
         }
     }
 
+    /* uploads the image to firebase storage */
     fun storeImage(){
         if(resultImageUrl != null && userId != null){
             val filePath = FirebaseStorage.getInstance().reference.child("profileImage").child(userId)
+            /* created bitmap */
             var bitmap: Bitmap? = null
             try{
                 bitmap = MediaStore.Images.Media.getBitmap(application.contentResolver, resultImageUrl)
             } catch (e: IOException){
                 e.printStackTrace()
             }
+            /* converts image into an array of bytes */
             val baos = ByteArrayOutputStream()
             bitmap?.compress(Bitmap.CompressFormat.JPEG, 20, baos)
             val data = baos.toByteArray()
@@ -151,29 +169,37 @@ class DogAppActivity : AppCompatActivity(), DogAppCallback {
         }
     }
 
+
+    /* signs user out and sends them back to the startup activity */
     override fun onSignout() {
         firebaseAuth.signOut()
         startActivity(StartupActivity.newIntent(this))
         finish()
     }
 
+    /* gets the user id */
     override fun onGetUserId(): String = userId!!
 
+    /* gets the users from database */
     override fun getUserDatabase(): DatabaseReference = userDatabase
 
+    /* gets the chats from database */
     override fun getChatDatabase(): DatabaseReference = chatDatabase
 
+    /* redirects user to the swipe page after clicking apply on the profile page */
     override fun profileComplete() {
         swipingTab?.select()
     }
 
+    /* returns the image */
     override fun startActivityForPhoto() {
         val intent = Intent(Intent.ACTION_PICK)
+        /* tells android system to get an image of any type */
         intent.type = "image/*"
         startActivityForResult(intent, REQUEST_CODE_PHOTO)
     }
 
-    //    static function
+    /* how kotlin passes a class type */
     companion object{
         fun newIntent(context: Context?) = Intent(context, DogAppActivity::class.java)
     }

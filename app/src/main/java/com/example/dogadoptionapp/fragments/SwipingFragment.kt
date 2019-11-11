@@ -31,6 +31,7 @@ class SwipingFragment : Fragment() {
     private lateinit var userDatabase: DatabaseReference
     private lateinit var chatDatabase: DatabaseReference
     private var cardsAdapter: ArrayAdapter<User>? = null
+
 //  rowItems are items the adaptor will display
     private var rowItems = ArrayList<User>()
 
@@ -61,6 +62,7 @@ class SwipingFragment : Fragment() {
             override fun onCancelled(p0: DatabaseError) {
             }
 
+            /* retrieves information for the cards */
             override fun onDataChange(p0: DataSnapshot) {
                 val user = p0.getValue(User::class.java)
                 preference2 = user?.preference2
@@ -107,7 +109,7 @@ class SwipingFragment : Fragment() {
                                     /* prints message notifying user of a match */
                                     Toast.makeText(context, "Match!", Toast.LENGTH_SHORT).show()
 
-
+                                    /* generates a key for the chat database */
                                     val chatKey = chatDatabase.push().key
 
 

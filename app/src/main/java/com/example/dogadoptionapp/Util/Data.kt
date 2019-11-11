@@ -1,5 +1,7 @@
 package com.example.dogadoptionapp
 
+/* Data structures for Users, Chats, and Messages*/
+
 data class User(
     val uid: String? = "",
     val name: String? = "",

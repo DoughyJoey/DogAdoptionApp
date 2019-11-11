@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activities.DogAppActivity">
 
+        <!-- TabLayout used to arrange groups of views into rows and columns -->
+        <!-- navigation tabs -->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/navigationTabs"
             android:layout_width="match_parent"
@@ -17,6 +19,7 @@
             android:layout_marginTop="8dp"
             app:tabRippleColor="@null" />
 
+        <!-- container for the main activity -->
         <LinearLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"

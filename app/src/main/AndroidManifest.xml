@@ -9,8 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".activities.ChatActivity"></activity>
-        <activity android:name=".activities.UserInformationActivity" /> <!-- screenOrientation means application will always run in portrait -->
+        <activity android:name=".activities.UserInformationActivity" />
         <!-- SoftInputMode means screen will resize when the keyboard in present -->
+        <!-- screenOrientation means application will always run in portrait mode -->
+        <!-- windowsSoftInputMode means screen will resize when keyboard is present -->
         <activity
             android:name=".activities.SignupActivity"
             android:screenOrientation="portrait"

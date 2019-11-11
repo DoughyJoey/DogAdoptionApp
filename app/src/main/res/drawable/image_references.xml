@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    logo.png
+    Icon made by https://www.flaticon.com/authors/freepik
+    At https://www.flaticon.com/
+
+    chat_active.png and chat_inactive.png
+    Icon made by https://www.flaticon.com/authors/freepik
+    At www.flaticon.com
+
+    default_pic.png
+    Icon made by https://www.flaticon.com/authors/srip
+    At www.flaticon.com
+
+    dog_house_active.png and dog_house_inactive.png
+    Icon made by https://www.flaticon.com/authors/freepik
+    At www.flaticon.com
+
+    like.png
+    Icon made by https://www.flaticon.com/authors/freepik
+    At www.flaticon.com
+
+    profile_active.png and profile_inactive.png
+    Icon made by https://www.flaticon.com/authors/smashicons
+    At www.flaticon.com
+
+
+
+</selector>

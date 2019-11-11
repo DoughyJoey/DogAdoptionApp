@@ -8,11 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- gets rid of the action bar and title -->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- styling for the standard button we will use -->
     <style name="NormalButton">
         <item name="android:background">@drawable/normal_button</item>
         <item name="android:textColor">@color/white</item>
@@ -22,17 +24,20 @@
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
     </style>
-    
+
+    <!-- alternative button styling (sign out)-->
     <style name="NormalButtonBlue" parent="NormalButton">
         <item name="android:background">@drawable/normal_button_blue</item>
     </style>
 
+    <!-- chat send button -->
     <style name="SendButton">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/normal_button_text_size</item>
         <item name="android:background">@drawable/send_button</item>
     </style>
 
+    <!-- styling for chat message box -->
     <style name="ChatBox">
         <item name="android:textSize">@dimen/chat_text_size</item>
         <item name="android:minHeight">@dimen/chat_normal_size</item>

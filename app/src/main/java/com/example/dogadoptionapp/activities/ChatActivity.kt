@@ -113,10 +113,12 @@ class ChatActivity : AppCompatActivity() {
 
     companion object {
 
+        /* define parameters */
         private val PARAM_CHAT_ID = "Chat id"
         private val PARAM_USER_ID = "User id"
         private val PARAM_IMAGE_URL = "Image url"
         private val PARAM_OTHER_USER_ID = "Other user id"
+
 
         fun newIntent(context: Context?, chatId: String?, userId: String?, imageUrl: String?, otherUserId: String?): Intent {
             val intent = Intent(context, ChatActivity::class.java)

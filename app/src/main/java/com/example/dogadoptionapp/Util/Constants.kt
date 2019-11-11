@@ -1,5 +1,8 @@
 package com.example.dogadoptionapp.Util
 
+/* static variables */
+/* database references */
+
 val DATA_USERS = "Users"
 val DATA_NAME = "name"
 val DATA_EMAIL = "email"

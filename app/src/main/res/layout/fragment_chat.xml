@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ChatFragment">
 
+    <!-- creates a list of elements -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRV"
         android:layout_width="match_parent"

@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="50dp"
     tools:context=".activities.LoginActivity">
 
+    <!-- email text input -->
+    <!-- hint is like a placeholder -->
     <EditText
         android:id="@+id/emailET"
         android:layout_width="@dimen/normal_width"
@@ -16,6 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- password text input -->
+    <!-- hint is like a placeholder -->
     <EditText
         android:id="@+id/passwordET"
         android:layout_width="@dimen/normal_width"
@@ -26,6 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
+    <!-- login button -->
     <Button
         android:id="@+id/loginButton"
         style="@style/NormalButton"
